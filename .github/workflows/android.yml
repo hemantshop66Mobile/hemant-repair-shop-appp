@@ -24,6 +24,12 @@ jobs:
         with:
           gradle-version: "8.9"
 
+    - - name: Extract V2 project
+        run: |
+          for file in *.zip; do
+            unzip -o "$file" -d .
+          done
+
       - name: Build APK
         run: gradle assembleDebug
 
